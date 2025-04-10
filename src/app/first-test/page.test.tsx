@@ -10,4 +10,12 @@ describe('Page', () => {
 
     expect(heading).toBeInTheDocument()
   })
+
+  it('renders a paragraph', () => {
+    render(<FirstTestPage />)
+
+    const paragraph = screen.getByText('Text')
+
+    expect(paragraph).toBeInTheDocument()
+  })
 })
