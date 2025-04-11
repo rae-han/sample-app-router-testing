@@ -2,6 +2,8 @@ import '@testing-library/jest-dom'
 import { render, screen } from '@testing-library/react'
 import FirstTestPage from './page'
 
+console.log = () => { }
+
 
 beforeEach(() => {
   console.log('file / beforeEach / 0 - 2'); // 3
