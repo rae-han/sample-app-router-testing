@@ -30,7 +30,7 @@ export default function TextField({
   const [value, setValue] = useState('');
   const [focused, setFocused] = useState(false);
 
-  const changeValue: ChangeEventHandler<HTMLInputElement> = event => {
+  const changeValue: ChangeEventHandler<HTMLInputElement> = (event) => {
     setValue(event.target.value);
     onChange?.(event.target.value);
   };
@@ -41,7 +41,7 @@ export default function TextField({
   const blur = () => {
     setFocused(false);
   };
-  const pressEnter: KeyboardEventHandler = event => {
+  const pressEnter: KeyboardEventHandler = (event) => {
     if (event.key === 'Enter' && !event.nativeEvent.isComposing) {
       event.preventDefault();
       onEnter?.(value);
@@ -58,9 +58,7 @@ export default function TextField({
       onKeyDown={pressEnter}
       placeholder={placeholder || '텍스트를 입력해 주세요.'}
       value={value}
-      style={
-        focused ? { borderWidth: 2, borderColor: 'rgb(25, 118, 210)' } : undefined
-      }
+      style={focused ? { borderWidth: 2, borderColor: 'rgb(25, 118, 210)' } : undefined}
     />
   );
 }

@@ -1,5 +1,5 @@
 const Paragraph = ({ children }: { children: React.ReactNode }) => {
-  return <p>{children}</p>
-}
+  return <p>{children}</p>;
+};
 
 export default Paragraph;
