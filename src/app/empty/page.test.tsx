@@ -21,6 +21,6 @@ describe('EmptyPage', () => {
 
     await user.click(screen.getByText('Go to Home'));
 
-    expect(navigationFn).toHaveBeenCalledWith('/');
+    expect(navigationFn).toHaveBeenNthCalledWith(1, '/');
   });
 });
