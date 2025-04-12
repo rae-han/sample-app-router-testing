@@ -20,7 +20,7 @@
     ],
     "paths": {
       "@/*": ["./src/*"],
-      "@/shared/*": ["./src/app/shared/*"]
+      "@/shared/*": ["src/shared/*"]
     },
     "types": ["jest"]
   },
