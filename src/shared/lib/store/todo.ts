@@ -1,7 +1,5 @@
 import { create } from 'zustand';
 
-jest.mock('zustand');
-
 interface Todo {
   id: number;
   title: string;
