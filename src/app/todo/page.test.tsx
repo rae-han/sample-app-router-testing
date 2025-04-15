@@ -1,4 +1,3 @@
-jest.mock('zustand');
 import render from '@/shared/lib/render';
 import { mockUseTodoStore } from '@/shared/lib/test/zustand';
 import TodoPage from './page';
