@@ -15,8 +15,6 @@ beforeEach(() => {
 describe('Todo Page', () => {
   it('TODO 리스트에 포함된 아이템들의 이름, 완료 여부가 올바르게 표시되어야 한다.', () => {
     // render(<TodoPage />);
-    // expect(screen.getByText('test')).toBeInTheDocument();
-    // expect(screen.getByText('test2')).toBeInTheDocument();
 
     expect(true).toBe(true);
   });

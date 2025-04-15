@@ -1,5 +1,7 @@
 import { create } from 'zustand';
 
+jest.mock('zustand');
+
 interface Todo {
   id: number;
   title: string;
@@ -12,9 +14,6 @@ export interface Todos {
   toggleTodo: (id: number) => void;
   removeTodo: (id: number) => void;
 }
-
-console.log(1111, { create });
-console.log(create);
 
 const useTodoStore = create<Todos>((set) => ({
   todos: [
