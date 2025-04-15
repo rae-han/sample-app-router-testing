@@ -13,6 +13,9 @@ export interface Todos {
   removeTodo: (id: number) => void;
 }
 
+console.log(1111, { create });
+console.log(create);
+
 const useTodoStore = create<Todos>((set) => ({
   todos: [
     { id: 1, title: 'test', completed: false },
