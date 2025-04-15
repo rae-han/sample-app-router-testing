@@ -29,4 +29,18 @@ describe('Todo Page', () => {
     expect(within(secondTodoItem).getByText('test2')).toBeInTheDocument();
     expect(within(secondTodoItem).getByRole('checkbox')).toBeChecked();
   });
+
+  it('TODO 리스트에 아이템을 추가할 수 있어야 한다.', async () => {
+    const SAMPLE_TEXT = 'test3';
+
+    const { user } = await render(<TodoPage />);
+
+    const input = screen.getByRole('textbox');
+    const addButton = screen.getByRole('button', { name: 'Add' });
+
+    await user.type(input, SAMPLE_TEXT);
+    await user.click(addButton);
+
+    expect(screen.getByText(SAMPLE_TEXT)).toBeInTheDocument();
+  });
 });

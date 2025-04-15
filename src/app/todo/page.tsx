@@ -1,9 +1,20 @@
 'use client';
 
 import useTodoStore from '@/shared/lib/store/todo';
+import { useState } from 'react';
 
 const TodoPage = () => {
+  const [text, setText] = useState('');
   const { todos, addTodo, toggleTodo, removeTodo } = useTodoStore();
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setText(e.target.value);
+  };
+
+  const handleAddTodo = () => {
+    addTodo(text);
+    setText('');
+  };
 
   return (
     <div>
@@ -17,8 +28,8 @@ const TodoPage = () => {
           </li>
         ))}
       </ul>
-      <input type="text" />
-      <button onClick={() => addTodo('test')}>Add</button>
+      <input type="text" value={text} onChange={handleChange} />
+      <button onClick={handleAddTodo}>Add</button>
     </div>
   );
 };
