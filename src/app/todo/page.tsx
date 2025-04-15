@@ -8,10 +8,16 @@ const TodoPage = () => {
   const { todos, addTodo, toggleTodo, removeTodo } = useTodoStore();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setText(e.target.value);
+    const { value } = e.target;
+    setText(value);
   };
 
   const handleAddTodo = () => {
+    if (text.length <= 0) {
+      window.alert('Please enter a todo');
+      return;
+    }
+
     addTodo(text);
     setText('');
   };

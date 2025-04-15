@@ -10,6 +10,14 @@ beforeEach(() => {
       { id: 2, title: 'test2', completed: true },
     ],
   });
+
+  // alert를 mock으로 설정
+  jest.spyOn(window, 'alert').mockImplementation(() => {});
+});
+
+afterEach(() => {
+  // 테스트 후 mock 초기화
+  jest.restoreAllMocks();
 });
 
 describe('Todo Page', () => {
@@ -42,5 +50,16 @@ describe('Todo Page', () => {
     await user.click(addButton);
 
     expect(screen.getByText(SAMPLE_TEXT)).toBeInTheDocument();
+  });
+
+  it('TODO 리스트에 아이템을 추가할 때 빈 문자열을 입력하면 경고 메시지가 표시되어야 한다.', async () => {
+    const { user } = await render(<TodoPage />);
+
+    const addButton = screen.getByRole('button', { name: 'Add' });
+
+    // 아무 텍스트도 입력하지 않고 바로 Add 버튼 클릭
+    await user.click(addButton);
+
+    expect(window.alert).toHaveBeenCalledWith('Please enter a todo');
   });
 });
